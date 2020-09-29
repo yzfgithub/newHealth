@@ -1,0 +1,76 @@
+.container{
+  background-color: #E4E4E4;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.title{
+  width: 750rpx;
+  height: 150rpx;
+  background: #40A9A1;
+  opacity: 1;
+  border-radius: 0px 0px 0px 100rpx;
+  font-size: 36rpx;
+  font-family: NotoSansCJKsc-Regular;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.head{
+  width: 750rpx;
+  height: 915rpx;
+  background: #008080;
+  padding: 282rpx 80rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.head .img{
+  width: 214rpx;
+  height: 218rpx;
+}
+.head .desc{
+  flex: 1;
+  padding-left: 30rpx;
+}
+.head .manager{
+  font-size: 27rpx;
+  font-family: NotoSansCJKsc-Regular;
+  line-height: 42rpx;
+  color: #69B7B1;
+  margin-bottom: 20rpx;
+}
+.head .manager text{
+  font-size: 45rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 44rpx;
+  color: #69B7B1;
+}
+.head .date{
+  width: 330rpx;
+  height: 50rpx;
+  background: #69B7B1;
+  opacity: 1;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-family: NotoSansCJKsc-Regular;
+  line-height: 48rpx;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content{
+  border-radius: 0 100rpx 0 0;
+  padding: 100rpx 45rpx;
+  background: #E4E4E4;
+  margin-top: -100rpx;
+}

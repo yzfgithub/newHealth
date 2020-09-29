@@ -1,0 +1,13 @@
+<!--pages/evaluationDesc/evaluationDesc.wxml-->
+<view class="evaluation-wrap">
+  <view class="title">整体健康评估问卷</view>
+  <view wx:for="{{titleList}}" class="list-item">
+    <image src="../../images/check.png" class="img"></image>
+    <view class="desc">
+      <block wx:for="{{item}}" wx:for-item="str">
+        <view>{{str}}</view>
+      </block>
+    </view>
+  </view>
+  <view bindtap="startEvaluate" class="btn">开始评估</view>
+</view>

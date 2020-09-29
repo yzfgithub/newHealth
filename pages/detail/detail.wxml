@@ -1,0 +1,77 @@
+<view class="title">基本信息</view>
+<view class='form_div'>
+  <view class='formDiv' style="margin-bottom: {{isIphoneX ? '48rpx' : '0rpx'}};">
+    <view>
+      <form bindsubmit="formSubmit">
+        <view class="card-wrap">
+          <view class='name'>
+            <view class='label-option'>
+              <text>姓名</text><text class="star">*</text>
+            </view>
+            <view class='input-box'>
+              <view class='input'>
+                <input value='{{saveName}}' placeholder-class="ph" name="name" placeholder='请输入您的姓名' style="color: rgba(255,150, 100, 0.9);"></input>
+              </view>
+            </view>
+          </view>
+          <view class="gender">
+            <view class='label-option'>
+              <text>性别</text><text class="star">*</text>
+            </view>
+            <radio-group name="sex" bindchange="genderChange">
+                <radio value="1" color="#F8542E" checked="{{saveGender == '1'}}">男</radio>
+                <radio value="2" color="#F8542E" checked="{{saveGender == '2'}}">女</radio>
+              </radio-group>
+          </view>
+
+          <view class="gender" wx:if="{{showPregnant}}">
+            <view class='label-option'>
+              <text>是否怀孕</text><text class="star">*</text>
+            </view>
+            <radio-group name="is_pregnant">
+                <radio value="1" color="#F8542E" checked="{{savePregnant == '1'}}">是</radio>
+                <radio value="0" color="#F8542E" checked="{{savePregnant == '0'}}">否</radio>
+              </radio-group>
+          </view>
+
+          <view class='age'>
+            <view class='label-option'>
+              <text>出生日期</text><text class="star">*</text>
+            </view>
+            <picker mode="date" value="{{birth_date}}" name="birth" bindchange="bindAgeChange" class='birth-date'>
+              <view class='age-on'>
+                <text style="color: {{birth_date ? 'rgba(255,150, 100, 0.9)' : '#C7C7C7'}}">{{birth_date || '请选择出生日期'}}</text>
+                <span></span>
+              </view>
+            </picker>
+          </view>
+
+          <view class='height'>
+            <view class='label-option'>
+              <text>身高</text><text class="star">*</text>
+            </view>
+            <view class='input-box'>
+              <view class='input'>
+                <input value="{{saveHeight}}" placeholder-class="ph" name="height" placeholder='请输入您的身高(cm)' style="color: rgba(255,150, 100, 0.9);"></input>
+              </view>
+            </view>
+          </view>
+
+          <view class='name'>
+            <view class='label-option'>
+              <text>体重</text><text class="star">*</text>
+            </view>
+            <view class='input-box'>
+              <view class='input'>
+                <input value="{{saveWeight}}" placeholder-class="ph" name="weight" placeholder='请输入您的体重(kg)' style="color: rgba(255,150, 100, 0.9);"></input>
+              </view>
+            </view>
+          </view>
+
+          <button style="margin-bottom: {{isIphoneX ? '48rpx' : '0rpx'}};" class="button" formType="submit" disabled='{{disable}}'>确认</button>
+
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

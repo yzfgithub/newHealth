@@ -1,0 +1,86 @@
+.container{
+  background-color: #E4E4E4;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.title{
+  width: 750rpx;
+  height: 150rpx;
+  background: #40A9A1;
+  opacity: 1;
+  border-radius: 0px 0px 0px 100rpx;
+  font-size: 36rpx;
+  font-family: NotoSansCJKsc-Regular;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.list{
+  padding: 200rpx 45rpx 0;
+}
+.health-item{
+  width: 660rpx;
+  height: 221rpx;
+  background-size: 100% 100%;
+  margin-bottom: 40rpx;
+  border-radius: 0 40rpx 40rpx;
+}
+.health-item-title{
+  padding: 35rpx 0 35rpx 35rpx;
+  font-size: 48rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 60rpx;
+  color: #FFFFFF;
+}
+.health-item-edit{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  padding: 0 35rpx;
+}
+.health-item-edit .str{
+  font-size: 36rpx;
+  font-family: Noto Sans CJK SC;
+  font-weight: 400;
+  line-height: 56rpx;
+  color: #FBAE3D;
+  display: flex;
+  align-items: center;
+}
+.health-item-edit .img{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.health-item-edit .btn{
+  width: 200rpx;
+  height: 65rpx;
+  background: #FCAE3D;
+  opacity: 1;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-family: NotoSansCJKsc-Medium;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.desc{
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s ease;
+  color: #929292;
+  font-size: 36rpx;
+  line-height: 56rpx;
+  margin-bottom: 10rpx;
+}

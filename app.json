@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/health/health",
+    "pages/ask/ask",
+    "pages/order/order",
+    "pages/person/person",
+    "pages/detail/detail",
+    "pages/question/question",
+    "pages/evaluationDesc/evaluationDesc",
+    "pages/report/report"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#ffffff",
+    "selecteColor": "#ffffff",
+    "borderStyle": "white",
+    "backgroundColor": "#BBBBBB",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "",
+        "iconPath": "/images/index_off.png",
+        "selectedIconPath": "/images/index_on.png"
+      },
+      {
+        "pagePath": "pages/health/health",
+        "text": "",
+        "iconPath": "/images/health_off.png",
+        "selectedIconPath": "/images/health_on.png"
+      },
+      {
+        "pagePath": "pages/ask/ask",
+        "text": "",
+        "iconPath": "/images/ask_off.png",
+        "selectedIconPath": "/images/ask_on.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "",
+        "iconPath": "/images/order_off.png",
+        "selectedIconPath": "/images/order_on.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "",
+        "iconPath": "/images/person_off.png",
+        "selectedIconPath": "/images/person_on.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

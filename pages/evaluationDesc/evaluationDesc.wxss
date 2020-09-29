@@ -1,0 +1,45 @@
+/* pages/evaluationDesc/evaluationDesc.wxss */
+.evaluation-wrap{
+  background-color: #E4E4E4;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 80rpx 40rpx 0 70rpx ;
+  box-sizing: border-box;
+}
+.evaluation-wrap .title{
+  font-size: 48rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 60rpx;
+  color: #000000;
+  margin-bottom: 75rpx;
+}
+.evaluation-wrap .list-item{
+  display: flex;
+  margin-bottom: 24rpx;
+}
+.evaluation-wrap .img{
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+  margin-right: 35rpx;
+}
+.evaluation-wrap .desc{
+  flex: 1;
+  font-size: 30rpx;
+  font-family: NotoSansCJKsc-Regular;
+  line-height: 56rpx;
+  color: #606060;
+}
+.evaluation-wrap .btn{
+  width: 322rpx;
+  height: 145rpx;
+  background: #FCAE3D;
+  border-radius: 73rpx;
+  font-size: 48rpx;
+  font-family: NotoSansCJKsc-Regular;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 75rpx;
+}

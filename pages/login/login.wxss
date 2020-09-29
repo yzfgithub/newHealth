@@ -1,0 +1,26 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  background-color: #40A9A1;
+}
+.logo-img{
+  width: 360rpx;
+  height: 368rpx;
+  display: block;
+  margin: 0 auto 180rpx;
+}
+.btn{
+  width: 570rpx !important;
+  padding: 0;
+  height: 100rpx;
+  background: #FCAE3D;
+  opacity: 1;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+  font-family: NotoSansCJKsc-Medium;
+  line-height: 100rpx;
+  color: #FFFFFF;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}

@@ -1,0 +1,15 @@
+function myIncludes(array,item) {
+  if(array && array.length){
+    return array.indexOf(item) > -1;
+  }
+  return false;
+}
+function descriptionLine(str) {
+  console.log(str);
+  return Math.ceil(str / 18) * 36 + 36;
+}
+
+module.exports = {
+  myIncludes: myIncludes,
+  descriptionLine: descriptionLine,
+}

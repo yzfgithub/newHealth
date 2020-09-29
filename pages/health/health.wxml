@@ -1,0 +1,26 @@
+<wxs  src="../../utils/format.wxs" module="fmt" />
+<!-- 健康评估 -->
+<view class="container">
+  <view class="title">
+  健康评估
+  </view>
+  <view class="list">
+    <block wx:for="{{healthList}}" wx:key='index'>
+    <view class="health-item" style="background-image:url('{{item.img}}')">
+      <view class="health-item-title">
+      {{item.name}}
+      </view>
+      <view class="health-item-edit">
+        <view class="str">
+        适合人群
+        <image bindtap="showDesc" data-key="{{index}}" class="img" src="../../images/bt.png"></image>
+        </view>
+        <view bindtap="goExam" data-Id="{{item.id}}" class="btn">
+        开始评估
+        </view>
+      </view>
+    </view>
+    <view style="height:{{item.showDescBool ? fmt.descriptionLine(item.description.length) + 'rpx' : '0'}}" class="desc">{{item.description}}</view>
+    </block>
+  </view>
+</view>

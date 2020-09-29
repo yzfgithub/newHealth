@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="title">
+  评估结果 客制化营养素
+  </view>
+  <view class="head">
+    <image src="../../images/logo_ow.png" class="img"></image>
+    <view class="desc">
+      <view class="manager">健康管理师 ｜ <text>Share</text></view>
+      <view class="date">测验结果 2020/07/25</view>
+    </view>
+  </view>
+  <view class="content">
+    
+  </view>
+</view>

@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view wx:if="{{canIUse}}" class="container">
+  <image class="logo-img" src="../../images/logo_ow.png"></image>
+  <button class='btn' open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>微信授权登录</button>
+</view>

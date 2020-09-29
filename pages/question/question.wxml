@@ -1,0 +1,53 @@
+<wxs  src="../../utils/format.wxs" module="fmt" />
+
+<!--pages/question/question.wxml-->
+<view class="question-wrap">
+  <!-- 进度 -->
+  <view wx:if="{{isProgress}}" class="progress">
+    <view class="title">问卷进度</view>
+    <block wx:for="{{categoryList}}" wx:for-index="key">
+      <view class="category-item">
+        <view class="icon">
+          <image wx:if="{{currentCategoryNum > key}}" src="../../images/check.png" class="img"></image>
+          <view wx:if="{{currentCategoryNum == key}}" class="progressing-block"></view>
+          <view wx:if="{{currentCategoryNum < key}}" class="after-block"></view>
+        </view>
+        <view class="name">{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+  <!-- 答题 -->
+  <view wx:if="{{questionList.length > 0}}" class="question">
+    <view class="question-line">
+      <view style="width:{{currentQuestionIndex * 100 / questionList[currentCategoryNum].list.length}}%" class="question-active"></view>
+    </view>
+    <view class="title">
+      {{questionList[currentCategoryNum].list[currentQuestionIndex].question}}
+    </view>
+    <block wx:for="{{questionList[currentCategoryNum].list[currentQuestionIndex].options}}">
+      <view bindtap="tapQuestionHandle" data-Question-id="{{item.id}}"  data-Kind="{{questionList[currentCategoryNum].list[currentQuestionIndex].kind}}" data-Category-num="{{currentCategoryNum}}" data-Current-question-index="{{currentQuestionIndex}}" class="question-option {{fmt.myIncludes(questionList[currentCategoryNum].list[currentQuestionIndex].answer,item.id) ? 'question-option-active' : 'question-option-no'}}">
+      {{item.option}}
+        <image wx:if="{{item.description && item.description.length > 0}}" catchtap="showDesc" data-Description="{{item.description}}" data-Option="{{item.option}}" src="../../images/bt.png" class="question-btn"></image>
+      </view>
+    </block>
+    <view wx:if="{{questionList[currentCategoryNum].list[currentQuestionIndex].kind === 1 && questionList[currentCategoryNum].list[currentQuestionIndex].answer.length === 0}}" class="submit submit-disabled">确定</view>
+    <view wx:if="{{questionList[currentCategoryNum].list[currentQuestionIndex].kind === 1 && questionList[currentCategoryNum].list[currentQuestionIndex].answer.length > 0}}" bindtap="nextQuestion" data-Category-num="{{currentCategoryNum}}" data-Current-question-index="{{currentQuestionIndex}}" class="submit">确定</view>
+  </view>
+  <!-- 结束 -->
+  <view wx:if="{{isShowResult}}" class="result">
+    <view class="title">
+      <view>谢谢您！，{{nickName}}</view>
+      <view>小润医疗团队正在审视</view>
+      <view>您的问卷结果</view>
+    </view>
+    <image class="img"  src="../../images/LOGO_2.png"></image>
+  </view>
+  <!-- 弹框 -->
+  <view wx:if="{{isShowDescription}}" class="custom-dialog">
+    <view class="box">
+      <image bindtap="closeDesc" src="../../images/close.png" class="img"></image>
+      <view class="option">{{option}}</view>
+      <view class="description">{{description}}</view>
+    </view>
+  </view>
+</view>

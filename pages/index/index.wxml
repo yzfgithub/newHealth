@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container">
+  <view bindtap="showReport">最近报告</view>
+</view>
