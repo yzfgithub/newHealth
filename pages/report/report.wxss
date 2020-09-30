@@ -29,6 +29,8 @@
   background: #008080;
   padding: 282rpx 80rpx;
   box-sizing: border-box;
+}
+.head .box{
   display: flex;
   align-items: center;
 }
@@ -67,10 +69,66 @@
   align-items: center;
   justify-content: center;
 }
+.head .name{
+  font-size: 48rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 60rpx;
+  color: #FCAE3D;
+  margin-top: 60rpx;
+}
+.head .str{
+  font-size: 48rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 60rpx;
+  color: #FFFFFF;
+}
+
+.body{
+  margin: 117rpx 0;
+  display: flex;
+}
+.body .img{
+  width: 382.08rpx;
+  height: 754.74rpx;
+}
+.body .tip{
+  width: 330rpx;
+  height: 755rpx;
+  background: #fff;
+  border-radius: 0 50rpx 50rpx 0;
+}
 
 .content{
   border-radius: 0 100rpx 0 0;
   padding: 100rpx 45rpx;
   background: #E4E4E4;
   margin-top: -100rpx;
+}
+
+.content .content-title{
+  font-size: 48rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 60rpx;
+  color: #000000;
+}
+
+.list{
+  background: #FFFFFF;
+  opacity: 1;
+  border-radius: 0px 50rpx 50rpx 50rpx;
+  padding: 40rpx 35rpx;
+  box-sizing: border-box;
+  margin-bottom: 60rpx;
+}
+.list .level{
+  font-size: 48rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 60rpx;
+  color: #EDC00E;
+}
+.list .recommend{
+  font-size: 36rpx;
+  font-family: NotoSansCJKsc-Regular;
+  line-height: 56rpx;
+  color: #606060;
 }

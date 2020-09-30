@@ -64,4 +64,8 @@ export default {
   getAnswerTopicsExplains(id, params, callback) {
     return get(`/v1/answer_topics/${id}/explains`, params, callback);
   },
+  // 某个评测报告
+  getAnswerTopicsDetail(id, params, callback) {
+    return get(`/v1/answer_topics/${id}`, params, callback);
+  },
 }
