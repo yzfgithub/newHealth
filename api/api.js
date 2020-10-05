@@ -68,4 +68,8 @@ export default {
   getAnswerTopicsDetail(id, params, callback) {
     return get(`/v1/answer_topics/${id}`, params, callback);
   },
+  // 某个评测报告推荐补品
+  // getAnswerNutrientPromotions(id, params, callback) {
+  //   return get(`/v1/answer_topic/${id}/nutrient_promotions`, params, callback);
+  // },
 }

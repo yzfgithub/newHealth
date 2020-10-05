@@ -110,13 +110,16 @@
   font-family: NotoSansCJKsc-Bold;
   line-height: 60rpx;
   color: #000000;
+  margin-bottom: 40rpx;
+  margin-left: 35rpx;
+  font-weight: 500;
 }
 
 .list{
   background: #FFFFFF;
   opacity: 1;
   border-radius: 0px 50rpx 50rpx 50rpx;
-  padding: 40rpx 35rpx;
+  padding: 40rpx 0 0;
   box-sizing: border-box;
   margin-bottom: 60rpx;
 }
@@ -125,10 +128,51 @@
   font-family: NotoSansCJKsc-Bold;
   line-height: 60rpx;
   color: #EDC00E;
+  padding: 0 35rpx;
 }
 .list .recommend{
   font-size: 36rpx;
   font-family: NotoSansCJKsc-Regular;
   line-height: 56rpx;
   color: #606060;
+  padding: 0 35rpx 40rpx;
+}
+.nutrient{
+  background: #008080;
+  border-radius: 0 50rpx 50rpx 50rpx;
+  padding: 40rpx 35rpx;
+}
+.nutrient .formulation{
+  font-size: 48rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 60rpx;
+  color: #FFFFFF;
+}
+.nutrient .desc{
+  font-size: 36rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 60rpx;
+  color: #FFFFFF;
+}
+.nutrient .medicine{
+  display: flex;
+  margin-top: 20rpx;
+}
+.nutrient .medicine .img{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 0 50rpx 50rpx 50rpx;
+  margin-right: 30rpx;
+}
+.nutrient .medicine .str1{
+  font-size: 48rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 60rpx;
+  color: #FCAE3D; 
+}
+.nutrient .medicine .str2{
+  font-size: 30rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 42rpx;
+  color: #FFFFFF; 
 }

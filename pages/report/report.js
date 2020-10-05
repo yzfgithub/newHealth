@@ -17,26 +17,40 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    const id = options.id || 22;
-    this.getAnswerTopicsExplains(id);
+    const id = options.id;
+    // this.getAnswerTopicsExplains(id);
     this.getAnswerTopicsDetail(id);
+    // this.getAnswerNutrientPromotions(id);
   },
-  getAnswerTopicsExplains(id) {
-    api.getAnswerTopicsExplains(id,{},(res) => {
-      console.log(res)
-      this.setData({
-        reportDetail: res.data
-      })
-    })
-  },
+  // getAnswerTopicsExplains(id) {
+  //   api.getAnswerTopicsExplains(id,{},(res) => {
+  //     console.log(res)
+  //     this.setData({
+  //       reportDetail: res.data
+  //     })
+  //   })
+  // },
   getAnswerTopicsDetail(id) {
     api.getAnswerTopicsDetail(id,{},(res) => {
+      console.log(res);
       this.setData({
-          date: res.data.end_on,
-          name: res.data.customer.name,
+        reportDetail: res.data.explains.map(item => {
+          let arr = res.data.nutrient_promotions.filter(val => val.feature.id === item.feature.id);
+          return Object.assign({},item,{
+            nutrient: arr.length ? arr[0].nutrient_promotions[0] : [],
+          });
+        }),
+        date: res.data.answer_topic.end_on || 'abc',
+        name: res.data.answer_topic.customer_name || 'abc',
       })
+      console.log(this.data.reportDetail);
     })
   },
+  // getAnswerNutrientPromotions(id){
+  //   api.getAnswerNutrientPromotions(id,{},(res) => {
+  //     console.log(res);
+  //   })
+  // },
   /**
    * Called when user click on the top right corner to share
    */

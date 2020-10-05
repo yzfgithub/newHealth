@@ -27,9 +27,21 @@
     <view class="content-title"><view>您的身体到底缺了</view> <view>哪些营养元素...</view></view>
     <block wx:for="{{reportDetail}}">
       <view class="list">
-        <view class="level">{{item.feature.name}}压力指数:
-轻度肾上腺疲劳</view>
-        <view class="recommend">{{item.explain.explain}}您壓力指數，目前可能有轻度肾上腺疲劳的迹象，可能处于在肾上腺失衡之第一期警觉期，意思指您有可能的症状会有身体慢性炎症出现，例如：青春痘、湿疹、荨麻疹、红疹、鼻炎等，或是有自律神经（心悸、胸闷、头痛、无法专心等）问题正在困扰着您喔，要快点重视身体给你的紧讯</view>
+        <view class="level">{{item.feature.name}}</view>
+        <view class="recommend">{{item.explain.explain}}</view>
+        <view wx:if="{{item.nutrient.length}}" class="nutrient">
+          <view class="formulation">{{item.nutrient[1].name}}</view>
+          <view class="desc">{{item.nutrient[1].description}}</view>
+          <view class="medicine">
+            <image src="{{'http://182.92.230.159:81'+item.nutrient[1].img}}" class="img"></image>
+            <view>
+              <view class="str1">Glycogenics</view>
+              <view class="str2">建议剂量：早晚各一颗</view>
+              <view class="str2">总剂数量： 60颗</view>
+              <view class="str2">$5.26/颗  ¥3.95/颗</view>
+            </view>
+          </view>
+        </view>
       </view>
     </block>
   </view>

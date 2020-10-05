@@ -21,6 +21,7 @@ Page({
     option: '',
 
     nickName: '',
+    answerId: -1,
   },
 
   /**
@@ -111,8 +112,8 @@ Page({
         })
         this.postResultData();
         setTimeout(()=>{
-          wx.switchTab({
-            url: '../index/index',
+          wx.redirectTo({
+            url: '/pages/report/report?id=' + this.data.answerId,
           })
         },5000)
       } else if (e.currentTarget.dataset.currentQuestionIndex === this.data.questionList[e.currentTarget.dataset.categoryNum].list.length - 1) {
@@ -147,12 +148,15 @@ Page({
     })
     let id = wx.getStorageSync('questionId');
     api.putTopicsAnswer(id, {answers: result},(res)=>{
-      console.log(res);
-      if(res.data.status === 0) {
-        wx.redirectTo({
-          url: '/pages/report/report?id='+res.data.id,
-        })
-      }
+      this.setData({
+        answerId: res.data.id,
+      })
+      // console.log(res);
+      // if(res.data.status === 0) {
+      //   wx.redirectTo({
+      //     url: '/pages/report/report?id='+res.data.id,
+      //   })
+      // }
     })
   },
 
