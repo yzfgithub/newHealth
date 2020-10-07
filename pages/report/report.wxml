@@ -1,3 +1,5 @@
+<wxs  src="../../utils/format.wxs" module="fmt" />
+
 <view class="container">
   <view class="title">
   评估结果 客制化营养素
@@ -6,7 +8,7 @@
     <view class="box">
       <image src="../../images/logo_ow.png" class="img"></image>
       <view class="desc">
-        <view class="manager">健康管理师 ｜ <text>Share</text></view>
+        <view class="manager">健康管理师 ｜ <text>占位管理</text></view>
         <view class="date">测验结果 {{date}}</view>
       </view>
     </view>
@@ -30,15 +32,15 @@
         <view class="level">{{item.feature.name}}</view>
         <view class="recommend">{{item.explain.explain}}</view>
         <view wx:if="{{item.nutrient.length}}" class="nutrient">
-          <view class="formulation">{{item.nutrient[1].name}}</view>
+          <view class="formulation">占位title，占位占位</view>
           <view class="desc">{{item.nutrient[1].description}}</view>
           <view class="medicine">
             <image src="{{'http://182.92.230.159:81'+item.nutrient[1].img}}" class="img"></image>
-            <view>
-              <view class="str1">Glycogenics</view>
-              <view class="str2">建议剂量：早晚各一颗</view>
-              <view class="str2">总剂数量： 60颗</view>
-              <view class="str2">$5.26/颗  ¥3.95/颗</view>
+            <view class="str">
+              <view class="str1">{{item.nutrient[1].name}}</view>
+              <view class="str2">建议剂量：早{{item.nutrient[0].morning_amount}}颗，中{{item.nutrient[0].afternoon_amount}}颗，晚{{item.nutrient[0].sleep_amount}}颗</view>
+              <view class="str2">总剂数量： {{item.nutrient[1].number}}颗</view>
+              <view class="str2"><view class="txt">$占位原价100/颗 <view class="line"> </view></view>  ¥{{fmt.priceEveryMedicine(item.nutrient[1].price,item.nutrient[1].number)}}/颗</view>
             </view>
           </view>
         </view>

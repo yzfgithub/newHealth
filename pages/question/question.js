@@ -22,6 +22,7 @@ Page({
 
     nickName: '',
     answerId: -1,
+    showPrevQuestion: false,
   },
 
   /**
@@ -89,11 +90,17 @@ Page({
   },
   tapQuestionHandle(e) {
     var midArr = this.data.questionList[e.currentTarget.dataset.categoryNum].list[e.currentTarget.dataset.currentQuestionIndex].answer;
-    if (midArr.includes(e.currentTarget.dataset.questionId)){
-      midArr = midArr.filter(i => i != e.currentTarget.dataset.questionId);
+
+    if (e.currentTarget.dataset.kind === 0){
+      midArr = [e.currentTarget.dataset.questionId];
     } else {
-      midArr.push(e.currentTarget.dataset.questionId);
+      if (midArr.includes(e.currentTarget.dataset.questionId)) {
+        midArr = midArr.filter(i => i != e.currentTarget.dataset.questionId);
+      } else {
+        midArr.push(e.currentTarget.dataset.questionId);
+      } 
     }
+
     var str = 'questionList[' + e.currentTarget.dataset.categoryNum + '].list[' + e.currentTarget.dataset.currentQuestionIndex + '].answer';
     this.setData({
       [str]: midArr.map(i => i),
@@ -122,16 +129,20 @@ Page({
         setTimeout(()=>{
           this.setData({
             currentCategoryNum: this.data.currentCategoryNum + 1,
-            currentQuestionIndex: 0
+            currentQuestionIndex: 0,
+            showPrevQuestion: false,
           })
         },1500)
         setTimeout(() => {
           this.hideProgress();
         }, 3000)
+        this.goTop();
       } else {
         this.setData({
-          currentQuestionIndex: this.data.currentQuestionIndex + 1
+          currentQuestionIndex: this.data.currentQuestionIndex + 1,
+          showPrevQuestion: true,
         })
+        this.goTop();
       }
     },150)
   },
@@ -170,6 +181,19 @@ Page({
   closeDesc() {
     this.setData({
       isShowDescription: false,
+    })
+  },
+  goTop() {
+    if (wx.pageScrollTo) {
+      wx.pageScrollTo({
+        scrollTop: 0
+      })
+    }
+  },
+  lastQuestion() {
+    this.setData({
+      showPrevQuestion: false,
+      currentQuestionIndex: this.data.currentQuestionIndex - 1,
     })
   },
 

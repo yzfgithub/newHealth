@@ -164,15 +164,31 @@
   border-radius: 0 50rpx 50rpx 50rpx;
   margin-right: 30rpx;
 }
+.nutrient .medicine .str{
+  width: 365rpx;
+}
 .nutrient .medicine .str1{
   font-size: 48rpx;
   font-family: NotoSansCJKsc-Bold;
   line-height: 60rpx;
   color: #FCAE3D; 
+  word-wrap: break-word;
 }
 .nutrient .medicine .str2{
   font-size: 30rpx;
   font-family: NotoSansCJKsc-Bold;
   line-height: 42rpx;
   color: #FFFFFF; 
+}
+.nutrient .medicine .str2 .txt{
+  display: inline-block;
+  position: relative;
+}
+.nutrient .medicine .str2 .txt .line{
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+  width: 100%;
+  height: 8rpx;
+  background: #FCAE3D;
 }

@@ -17,7 +17,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    const id = options.id;
+    const id = options.id || 23;
     // this.getAnswerTopicsExplains(id);
     this.getAnswerTopicsDetail(id);
     // this.getAnswerNutrientPromotions(id);
@@ -40,8 +40,8 @@ Page({
             nutrient: arr.length ? arr[0].nutrient_promotions[0] : [],
           });
         }),
-        date: res.data.answer_topic.end_on || 'abc',
-        name: res.data.answer_topic.customer_name || 'abc',
+        date: res.data.answer_topic.end_on || '占位abc',
+        name: res.data.answer_topic.customer_name || '占位abc',
       })
       console.log(this.data.reportDetail);
     })

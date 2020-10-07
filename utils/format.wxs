@@ -8,8 +8,12 @@ function descriptionLine(str) {
   console.log(str);
   return Math.ceil(str / 18) * 36 + 36;
 }
+function priceEveryMedicine(total,num) {
+  return (total / num).toFixed(2);
+}
 
 module.exports = {
   myIncludes: myIncludes,
   descriptionLine: descriptionLine,
+  priceEveryMedicine: priceEveryMedicine,
 }

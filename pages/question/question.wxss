@@ -5,6 +5,7 @@
   background: #E4E4E4;
   padding: 80rpx;
   box-sizing: border-box;
+  position: relative;
 }
 .progress{
   position: fixed;
@@ -68,13 +69,43 @@
   color: #000000;
 }
 
-.question .question-line{
-  width:100%;
+.line-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40rpx 80rpx;
+  box-sizing: border-box;
+  background: #E4E4E4;
+  z-index: 99;
+}
+.line-prev{
+  width: 100rpx;
+  background: #008080;
+  border-radius: 27rpx;
+  padding: 0 5rpx;
+  margin-right: 10rpx;
+  color: #69B7B1;
+  cursor: pointer;
+}
+.line-next{
+  width: 86rpx;
+  text-align: right;
+}
+.line-next .txt{
+  color: red;
+}
+.question-line{
+  /* width:100%; */
+  flex: 1;
   height: 5rpx;
   background: #fff;
   border-radius: 5rpx;
 }
-.question .question-active{
+.question-active{
   height: 100%;
   background: #FCAE3D;
 }

@@ -17,10 +17,14 @@
     </block>
   </view>
   <!-- 答题 -->
-  <view wx:if="{{questionList.length > 0}}" class="question">
+  <view class="line-box">
+    <view wx:if="{{showPrevQuestion}}" bindtap="lastQuestion" class="line-prev">上一题</view>
     <view class="question-line">
       <view style="width:{{currentQuestionIndex * 100 / questionList[currentCategoryNum].list.length}}%" class="question-active"></view>
     </view>
+    <view class="line-next"><text class="txt">{{currentQuestionIndex}}</text>/{{questionList[currentCategoryNum].list.length}}</view>
+  </view>
+  <view wx:if="{{questionList.length > 0}}" class="question">
     <view class="title">
       {{questionList[currentCategoryNum].list[currentQuestionIndex].question}}
     </view>

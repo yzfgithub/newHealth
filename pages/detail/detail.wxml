@@ -52,7 +52,7 @@
             </view>
             <view class='input-box'>
               <view class='input'>
-                <input value="{{saveHeight}}" placeholder-class="ph" name="height" placeholder='请输入您的身高(cm)' style="color: rgba(255,150, 100, 0.9);"></input>
+                <input value="{{saveHeight}}" type="number" placeholder-class="ph" name="height" placeholder='请输入您的身高(cm)' style="color: rgba(255,150, 100, 0.9);"></input>
               </view>
             </view>
           </view>
@@ -63,7 +63,7 @@
             </view>
             <view class='input-box'>
               <view class='input'>
-                <input value="{{saveWeight}}" placeholder-class="ph" name="weight" placeholder='请输入您的体重(kg)' style="color: rgba(255,150, 100, 0.9);"></input>
+                <input value="{{saveWeight}}" type="number" placeholder-class="ph" name="weight" placeholder='请输入您的体重(kg)' style="color: rgba(255,150, 100, 0.9);"></input>
               </view>
             </view>
           </view>
