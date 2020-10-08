@@ -2,8 +2,8 @@
 App({
   onLaunch: function () {
     wx.redirectTo({
-      url: '/pages/login/login',
-      // url: '/pages/report/report',
+      // url: '/pages/login/login',
+      url: '/pages/report/report',
     })
   },
   globalData: {
