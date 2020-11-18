@@ -1,0 +1,21 @@
+<!--pages/evaluationInfo/evaluationInfo.wxml-->
+<view class="evaluate-wrap">
+  <view class="info">
+    <image src="../../images/new/evalution_box_bg.png"></image>
+    <view class="po-str str1">六维健康评估</view>
+    <view class="po-str str2">7分钟了解你的亚健康状态</view>
+
+    <view class="po-str str3">六维亚健康是由</view>
+    <view class="po-str str3">台湾健康管理团设计</view>
+    <view class="po-str str5">填写预计需要7分钟</view>
+    <view class="po-str str6">现在，您将开启</view>
+    <view class="po-str str7">健康生活的第一步</view>
+  </view>
+  <view class="btn">
+    <image src="../../images/new/btn-bg.png"></image>
+    <view class="str">Let’s go!</view>
+  </view>
+  <view class="pic">
+    <image src="../../images/new/info-pic.png"></image>
+  </view>
+</view>

@@ -9,7 +9,8 @@
     "pages/detail/detail",
     "pages/question/question",
     "pages/evaluationDesc/evaluationDesc",
-    "pages/report/report"
+    "pages/report/report",
+    "pages/evaluationInfo/evaluationInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

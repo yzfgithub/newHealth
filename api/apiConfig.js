@@ -1,4 +1,4 @@
-const baseUrl = 'http://182.92.230.159:81';
+const baseUrl = 'https://mp.xiaorunhealth.com';
 // const baseUrl = 'http://127.0.0.1:3001';
 
 const handSuccess = (res, successCallback) => {

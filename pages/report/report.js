@@ -17,7 +17,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    const id = options.id || 23;
+    const id = options.id || 53;
     // this.getAnswerTopicsExplains(id);
     this.getAnswerTopicsDetail(id);
     // this.getAnswerNutrientPromotions(id);
@@ -32,12 +32,12 @@ Page({
   // },
   getAnswerTopicsDetail(id) {
     api.getAnswerTopicsDetail(id,{},(res) => {
-      console.log(res);
+      const mutrientArray = res.data.nutrient_promotions.filter(item => item.feature); 
       this.setData({
         reportDetail: res.data.explains.map(item => {
-          let arr = res.data.nutrient_promotions.filter(val => val.feature.id === item.feature.id);
+          let arr = mutrientArray.filter(val => val.feature.id === item.feature.id);
           return Object.assign({},item,{
-            nutrient: arr.length ? arr[0].nutrient_promotions[0] : [],
+            nutrient: arr.length ? arr[0].nutrient_promotions : [],
           });
         }),
         date: res.data.answer_topic.end_on || '占位abc',
