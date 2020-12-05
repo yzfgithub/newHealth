@@ -10,7 +10,9 @@
     "pages/question/question",
     "pages/evaluationDesc/evaluationDesc",
     "pages/report/report",
-    "pages/evaluationInfo/evaluationInfo"
+    "pages/evaluationInfo/evaluationInfo",
+    "pages/exerciseTopics/exerciseTopics",
+    "pages/newReport/newReport"
   ],
   "window": {
     "backgroundTextStyle": "light",

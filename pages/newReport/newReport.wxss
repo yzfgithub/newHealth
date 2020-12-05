@@ -1,0 +1,98 @@
+.report-wrap{
+  width: 100vw;
+  min-height: 100vh;
+  background: #E5E5E5;
+  padding: 67rpx 67rpx 277rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.report-header .top{
+  display: flex;
+}
+.report-header .top .left image{
+  width: 296rpx;
+  height: 350rpx;
+}
+.report-header .top .right{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 115%;
+  /* or 69px */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.045em;
+  width: 260rpx;
+  margin-left: 50rpx;
+}
+.report-header .btn{
+  margin: 0 auto;
+  width: 453rpx;
+  height: 110rpx;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4F4F4 100%);
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15), 4px 3px 15px 4px #CDCDCD;
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32rpx;
+  line-height: 131.7%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: 0.11em;
+  margin-top: 60rpx;
+  margin-bottom: 49rpx;
+}
+.report-total {
+  display: flex;
+  flex-direction: column;
+}
+.report-total .content, .report-total .text{
+  display: flex;
+  position: relative;
+}
+.report-total .content image{
+  width: 615rpx;
+}
+.report-total .content .box, .report-total .text .box{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 32rpx 37rpx;
+  box-sizing: border-box;
+}
+.report-total .content .box .date{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 160.5%;
+  letter-spacing: 0.095em;
+}
+.report-total .line{
+  width: 615rpx;
+  height: 8rpx;
+}
+.report-total .text image{
+  width: 615rpx;
+}
+.report-total .text .title{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 160.5%;
+  letter-spacing: 0.095em;
+}
+.report-total .text .desc{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28rpx;
+  line-height: 160.5%;
+  letter-spacing: 0.05em;
+}

@@ -40,23 +40,87 @@
   font-weight: 300;
   font-size: 25.3rpx;
 }
+.po-str.img{
+  width: 90.53rpx;
+  height: 78.95rpx;
+  left: 174rpx;
+  top: 136rpx;
+  margin: 0;
+}
 .po-str.str3{
-  left: 186rpx;
+  left: 206rpx;
   top: 312rpx;
 }
 .po-str.str4{
-    left: 186rpx;
-    top: 312rpx;
+  left: 206rpx;
+  top: 362rpx;
 }
 .po-str.str5{
-  
+  left: 206rpx;
+  top: 442rpx;
 }
 .po-str.str6{
-  
+  left: 206rpx;
+  top: 492rpx;
 }
 .po-str.str7{
-  
+  left: 206rpx;
+  top: 540rpx;
 }
+.po-str.str8{
+  left: 206rpx;
+  top: 312rpx;
+  font-family: IHYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 46rpx;
+  line-height: 115%;
+  color: #4D4D4D;
+
+}
+.po-str.str9{
+  left: 206rpx;
+  top: 382rpx;
+  width: 400rpx;
+  font-family: IHYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 46rpx;
+  line-height: 115%;
+  color: #4D4D4D;
+  position: relative;
+  padding-bottom: 20rpx;
+  height: 50rpx;
+}
+.po-str.str9::after{
+  content: '';
+  width: 100%;
+  height: 2rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #4D4D4D;
+}
+.input-placeholder{
+  font-family: IHYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 115%;
+  color: #dfdfdf;
+}
+.po-str.str10{
+  left: 206rpx;
+  top: 490rpx;
+  color: #4D4D4D;
+}
+.po-str.str11{
+  left: 206rpx;
+  top: 540rpx;
+  color: #4D4D4D;
+}
+
+
 .btn{
   width: 453.33rpx;
   height: 110rpx;
@@ -85,11 +149,12 @@
 
 }
 .pic{
-  width: 453.33rpx;
+  width: 403.33rpx;
   height: auto;
   margin: 0 auto;
+  padding-bottom: 60rpx;
 }
 .pic image{
-  width: 453.33rpx;
+  width: 403.33rpx;
   height: 671.4rpx;
 }

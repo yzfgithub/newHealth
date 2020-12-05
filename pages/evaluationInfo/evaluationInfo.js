@@ -1,65 +1,62 @@
-// pages/evaluationInfo/evaluationInfo.js
+import evalutionApi from '../../api/evalutionApi.js'
+
 Page({
 
-  /**
-   * Page initial data
-   */
   data: {
-
+    type: 'info',
+    name: '',
+    topic_id: 0,
   },
-
-  /**
-   * Lifecycle function--Called when page load
-   */
   onLoad: function (options) {
-
+    let name = wx.getStorageSync("nickname");
+    let topic_id = options.topic_id || 2;
+    this.setData({
+      name: name,
+      topic_id: topic_id,
+    })
   },
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
+  beginExercise() {
+    if(this.data.type === 'info') {
+      this.setData({
+        type: 'name',
+      })
+    } else {
+      let nameStr = this.data.name.replace(/(^\s*)|(\s*$)/g, "");
+      let filterBlank = nameStr.replace(/\s/g, "");
+      let reg = /^([\u4e00-\u9fa5]+|[a-zA-Z0-9]+)$/
+      if(!reg.test(filterBlank)) {
+        wx.showToast({
+          icon: 'none',
+          title: '用户名不能包含特殊字符!',
+        })
+        return false;
+      }
+      wx.setStorage({
+        key: "uName",
+        data: nameStr,
+      })
+      evalutionApi.createEvalution({name:nameStr, topic_id: this.data.topic_id}, (res) => {
+        console.log(res);
+        if(res.data.success) { //?evalutionId=${res.data}
+        wx.setStorage({
+          key: 'questionId',
+          data: res.data.data.id,
+        });
+          wx.navigateTo({
+            url: '/pages/exerciseTopics/exerciseTopics',
+          })
+        } else {
+          wx.showToast({
+            title: res.msg,
+          })
+        }
+      });
+    }
+  },
+  userNameInput(e) {
+    this.setData({
+      name: e.detail.value
+    })
   },
 
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
-  }
 })

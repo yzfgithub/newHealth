@@ -2,20 +2,29 @@
 <view class="evaluate-wrap">
   <view class="info">
     <image src="../../images/new/evalution_box_bg.png"></image>
-    <view class="po-str str1">六维健康评估</view>
-    <view class="po-str str2">7分钟了解你的亚健康状态</view>
+    <view wx:if="{{type == 'info'}}" class="po-str str1">六维健康评估</view>
+    <view wx:if="{{type == 'info'}}" class="po-str str2">7分钟了解你的亚健康状态</view>
+    <image wx:if="{{type == 'name'}}" class="po-str img" src="../../images/new/brand-icon-black.png" alt=""></image>
 
-    <view class="po-str str3">六维亚健康是由</view>
-    <view class="po-str str3">台湾健康管理团设计</view>
-    <view class="po-str str5">填写预计需要7分钟</view>
-    <view class="po-str str6">现在，您将开启</view>
-    <view class="po-str str7">健康生活的第一步</view>
+    <view wx:if="{{type == 'info'}}" class="po-str str3">六维亚健康是由</view>
+    <view wx:if="{{type == 'info'}}" class="po-str str4">台湾健康管理团设计</view>
+    <view wx:if="{{type == 'info'}}" class="po-str str5">填写预计需要7分钟</view>
+    <view wx:if="{{type == 'info'}}" class="po-str str6">现在，您将开启</view>
+    <view wx:if="{{type == 'info'}}" class="po-str str7">健康生活的第一步</view>
+
+    <view wx:if="{{type == 'name'}}" class="po-str str8">Hello!</view>
+    <input value="{{name}}" wx:if="{{type == 'name'}}" class="po-str str9" name="userName" placeholder-class="input-placeholder" placeholder="请输入用户名" 
+    bindinput="userNameInput"/>
+
+    <view wx:if="{{type == 'name'}}" class="po-str str10">该称呼会出现在</view>
+    <view wx:if="{{type == 'name'}}" class="po-str str11">您的专属营养素包装上</view>
   </view>
   <view class="btn">
     <image src="../../images/new/btn-bg.png"></image>
-    <view class="str">Let’s go!</view>
+    <view wx:if="{{type == 'info'}}" bindtap="beginExercise" class="str">Let’s go!</view>
+    <view wx:if="{{type == 'name'}}" bindtap="beginExercise" class="str">Next</view>
   </view>
-  <view class="pic">
+  <view wx:if="{{type == 'info'}}" class="pic">
     <image src="../../images/new/info-pic.png"></image>
   </view>
 </view>

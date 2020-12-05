@@ -1,0 +1,539 @@
+.question-wrap{
+  width: 100vw;
+  min-height: 100vh;
+  background: #E4E4E4;
+  padding: 80rpx 58rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.gender .title, .birthday .title, .body-height .title, .body-weight .title, .regnancy .title{
+  font-family: HYQiHei;
+  font-weight: bold;
+  font-size: 40rpx;
+  text-align: center;
+  color: #000000;
+  margin: 70rpx 0 45rpx;
+}
+.gender .img{
+  width: 563rpx;
+  height: 491rpx;
+}
+.gender-selector{
+  display: flex;
+  justify-content: space-around;
+}
+.gender-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gender .gender-selector .img{
+  width: 250rpx;
+  height: 250rpx;
+}
+.gender .gender-selector .gender-icon{
+  width: 20rpx;
+  height: 20rpx;
+  margin-top: 20rpx;
+}
+.birthday .btn-date, .body-height .btn-birthday, .body-weight .btn-birthday{
+  width: 633rpx;
+  height: 147rpx;
+  position: relative;
+}
+.birthday .btn-date .img, .body-height .btn-birthday .img, .body-weight .btn-birthday .img{
+    width: 633rpx;
+    height: 147rpx;
+}
+.birthday .btn-date .str, .body-height .btn-birthday .str, .body-weight .btn-birthday .str{
+  font-family: Infiniti Brand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 46rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  line-height: 100rpx;
+}
+.body-height .btn-birthday .str .input, .body-weight .btn-birthday .str .input{
+  width: 200rpx;
+  padding-bottom: 20rpx;
+  position: relative;
+  top: 15rpx;
+  margin-left: 10rpx;
+  line-height: 100rpx;
+  height: 100rpx;
+  text-align: center;
+}
+.body-height .btn-birthday .str .input::after, .body-weight .btn-birthday .str .input::after{
+  content: '';
+  width: 100%;
+  height: 2rpx;
+  background: #666;
+  display: block;
+  position: absolute;
+  bottom: 20rpx;
+}
+.birthday .candle, .body-weight .weighing{
+  width: 431rpx;
+  height: 170rpx;
+  display: block;
+  margin: 80rpx auto 50rpx;
+}
+.body-height .ruler{
+  width: 67rpx;
+  height: 421rpx;
+  display: block;
+  margin: 0 80rpx 0 auto;
+}
+.birthday .btn, .body-height .btn, .body-weight .btn{
+  width: 453.33rpx;
+  height: 110rpx;
+  position: relative;
+  margin: 50rpx auto;
+}
+.birthday .btn .img, .body-height .btn .img, .body-weight .btn .img{
+  width: 100%;
+  height: 100%;
+}
+.birthday .btn .str, .body-height .btn .str, .body-weight .btn .str{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Infiniti Brand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 41.3rpx;
+  line-height: 131.7%;
+}
+.btn-regnancy{
+  width: 633rpx;
+  height: 147rpx;
+  position: relative;
+  margin-top: 40rpx;
+}
+.btn-regnancy .img{
+  width: 633rpx;
+  height: 147rpx;
+}
+.btn-regnancy .str{
+  font-family: Infiniti Brand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 46rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.regnancy .female{
+  width: 380rpx;
+  height: 726rpx;
+  margin: 50rpx 0 0 auto;
+  display: block;
+}
+
+/*进度 */
+.progress{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top:0;
+  left: 0;
+  z-index: 100;
+  padding: 58rpx;
+  box-sizing: border-box;
+  background: #E4E4E4;
+}
+.progress .category-item{
+  position: relative;
+  text-align: center;
+  height: 280rpx;
+}
+.progress .category-item .line-icon{
+  height: 176rpx;
+  width: 3rpx;
+  background: linear-gradient(0deg, #E1E1E1 0%, #000000 50%, #E1E1E1 100%);
+  background-blend-mode: screen;
+  margin: 0 auto;
+}
+.progress .category-item .circle-icon{
+  height: 18.18rpx;
+  width: 18.18rpx;
+  background: radial-gradient(72.92% 72.65% at 37.05% 37.63%, #EFEFEF 0%, #B0B0B0 100%);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 4px 3px 15px #CDCDCD;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 140rpx;
+  margin: 0 auto;
+}
+.progress .category-item .name{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 115%;
+}
+.progress .category-item .circle-icon-done{
+  background: radial-gradient(72.92% 72.65% at 37.05% 37.63%, #D6DD21 0%, #89C33F 100%);
+}
+.progress .category-item .circle-icon-doing{
+  background: radial-gradient(72.92% 72.65% at 37.04% 37.63%, #BAF1F8 0%, #76A3C9 100%);
+}
+.progress .category-item .status{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 25.3rpx;
+  line-height: 115%;
+}
+.progress .category-item .status-todo {
+  color: #C9C9C9;
+}
+.progress .category-item .status-doing{
+  color: #4D4D4D;
+}
+.progress .category-item .status-done{
+  color: #89C33F;
+}
+.progress .progress-img{
+  /* position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  margin: 0 auto;
+  z-index: 10;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.progress .progress-img .img{
+  width: 40vw;
+}
+
+
+
+
+
+.line-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40rpx 58rpx;
+  box-sizing: border-box;
+  background: #E4E4E4;
+  z-index: 99;
+}
+.line-prev{
+  width: 150rpx;
+  border-radius: 27rpx;
+  padding: 0 5rpx;
+  margin-right: 10rpx;
+  color: #7FA3C5;
+  cursor: pointer;
+}
+.line-prev .img{
+  height: 28rpx;
+  width: 17rpx;
+}
+.line-next{
+  width: 86rpx;
+  text-align: right;
+}
+.line-next .txt{
+  color: #7FA3C5;
+}
+.question-line{
+  flex: 1;
+  height: 5rpx;
+  background: linear-gradient(90deg, #E1E1E1 0%, #000000 50%, #E1E1E1 100%);
+  background-blend-mode: screen;
+  border-radius: 5rpx;
+  position: relative;
+}
+.question-active{
+  height: 100%;
+  background: #FCAE3D;
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  top: -10rpx;
+  background: radial-gradient(72.92% 72.65% at 37.04% 37.63%, #BAF1F8 0%, #76A3C9 100%);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 4px 3px 15px #CDCDCD;
+  transform: rotate(90deg);
+  border-radius: 10rpx;
+}
+
+
+.question .title{
+  margin: 70rpx 0 45rpx;
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 115%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.title-desc{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 25.3rpx;
+  line-height: 115%;
+  text-align: center;
+  display: block;
+  margin-top: -20rpx;
+  margin-bottom: 50rpx;
+}
+.question .question-option{
+  width: 633.3rpx;
+  min-height: 146.67rpx;
+  box-sizing: border-box;
+  font-size: 40rpx;
+  font-family: NotoSansCJKsc-Regular;
+  line-height: 53rpx;
+  color: #000000;
+  margin-bottom: 45rpx;
+  /* background: #ffffff; */
+  padding: 20rpx 40rpx;
+  /* border-radius: 0px 50rpx 50rpx 50rpx; */
+  position: relative;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4F4F4 100%);
+  background-blend-mode: multiply, normal;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15), 4px 3px 15px 4px #CDCDCD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.question .question-option-long {
+  font-size: 25.3rpx;
+}
+.question .question-option-active{
+  background: linear-gradient(0deg, #7FA3C5, #7FA3C5), linear-gradient(90deg, #FFFFFF 0%, #FDFDFD 56.19%, #F4F4F4 88.04%, #EFEFEF 100%);
+  color: #ffffff;
+}
+.question .question-option-no{
+  color: #000000;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4F4F4 100%);
+}
+.question .question-btn{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.submit{
+  width: 453rpx;
+  height: 110rpx;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 40rpx;
+  font-family: NotoSansCJKsc-Regular;
+  line-height: 53rpx;
+  color: #ffffff;
+  margin-bottom: 45rpx;
+  background: #f1f50f;
+  padding: 20rpx 40rpx;
+  background: linear-gradient(180deg, #A9D2F9 0%, #7FA3C5 100%);
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15), 4px 3px 15px 4px #CDCDCD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.submit-disabled{
+  background: #aaaaaa;
+  color: #fff;
+}
+
+.result{
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+}
+.result .box{
+  width: 666rpx;
+  height: 705rpx;
+  margin: 0 auto;
+  margin-top: 80rpx;
+  display: block;
+  position: relative;
+}
+.result .box .img{
+  width: 666rpx;
+  height: 705rpx;
+  margin: 0 auto;
+  margin-top: 80rpx;
+  display: block;
+}
+.result .box .logo{
+  position: absolute;
+  top: 146rpx;
+  left: 176rpx; 
+  width: 90.6rpx;
+  height: 78.6rpx;
+}
+.result .box .txt{
+  position: absolute;
+  top: 316rpx;
+  left: 176rpx;
+  width: 391rpx;
+  height: 78.6rpx;
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 160.5%;
+  /* or 96px */
+  letter-spacing: 0.135em;
+  color: #4D4D4D;
+}
+.result .box .icon-box{
+  position: absolute;
+  top: 516rpx;
+  left: 176rpx;
+  width: 431rpx;
+  height: 78.6rpx;
+}
+.result .box .icon-inline{
+  display: inline-block;
+  margin-right: 10rpx;
+}
+.result .box .load-icon{
+  width: 42.3rpx;
+  height: 37rpx;
+}
+.result .btn{
+  margin-top: 50rpx;
+  height: 267rpx;
+  width: 100%;
+}
+.result .btn-top{
+  margin: 0 auto;
+  margin-bottom: 60rpx;
+  height: 110rpx;
+  width: 453rpx;
+  background: linear-gradient(180deg, #A9D2F9 0%, #7FA3C5 100%);
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15), 4px 3px 5px 1px #CDCDCD;
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 115%;
+  /* or 69px */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: 0.045em;
+
+  color: #FFFFFF;
+}
+.result .btn-bottom{
+  margin: 0 auto;
+  margin-bottom: 60rpx;
+  height: 110rpx;
+  width: 453rpx;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4F4F4 100%);
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.15), 4px 3px 5px 1px #CDCDCD;
+  font-family: Infiniti Brand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 131.7%;
+  /* or 82px */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: 0.11em;
+
+  color: #4D4D4D;
+}
+
+.custom-dialog{
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+}
+.custom-dialog .box{
+  width: 0;
+  height: 655rpx;
+  margin: auto 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.custom-dialog .img{
+  width: 100%;
+  height: 100%;
+}
+.custom-dialog .txt{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 500rpx;
+  right: 0;
+  margin: 0 auto;
+}
+.custom-dialog .option{
+  color: #008080;
+  font-size: 48rpx;
+  font-family: NotoSansCJKsc-Bold;
+  line-height: 60rpx;
+  margin: 40rpx 40rpx 20rpx 0;
+}
+.custom-dialog .description{
+  font-size: 36rpx;
+  font-family: NotoSansCJKsc-Regular;
+  line-height: 56rpx;
+  color: #606060;
+}
+.custom-dialog .close-block{
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  bottom: 0;
+  height: 130rpx;
+  width: 110rpx;
+}

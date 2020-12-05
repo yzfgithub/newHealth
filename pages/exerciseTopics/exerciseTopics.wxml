@@ -1,0 +1,179 @@
+<!--pages/exerciseTopics/exerciseTopics.wxml-->
+<wxs  src="../../utils/format.wxs" module="fmt" />
+
+<view class="question-wrap">
+
+  <!-- 进度条 -->
+<view class="line-box">
+    <view wx:if="{{showPrevQuestion}}" bindtap="prevQuestion" class="line-prev">
+      <image class="img" src="../../images/new/next-icon.png"></image>
+      上一题
+    </view>
+    <view class="question-line">
+      <view style="left:{{currentQuestionIndex * 100 / questionList[currentCategoryNum].list.length}}%" class="question-active"></view>
+    </view>
+    <view class="line-next"><text class="txt">{{currentIndex}}</text><text class="txt">/{{questionLength}}</text>
+    </view>
+  </view>
+
+  <!-- 性别 -->
+  <view wx:if="{{currentQustion == 'gender'}}" class="gender">
+    <view class="title">请问您是...</view>
+    <image class="img" src="../../images/new/gender.png"></image>
+    <view class="gender-selector">
+      <view class="gender-item">
+        <image wx:if="{{gender == 'male'}}" class="img" src="../../images/new/male-active.png"></image>
+        <image bindtap="selectGender" data-Gender="male" wx:if="{{gender != 'male'}}" class="img" src="../../images/new/male-normal.png"></image>
+        <image class="gender-icon" src="../../images/new/male.png"></image>
+      </view>
+      <view class="gender-item">
+        <image wx:if="{{gender == 'female'}}" class="img" src="../../images/new/female-active.png"></image>
+        <image bindtap="selectGender" data-Gender="female" wx:if="{{gender != 'female'}}" class="img" src="../../images/new/female-normal.png"></image>
+        <image class="gender-icon" src="../../images/new/female.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 生日 -->
+  <view wx:if="{{currentQustion == 'birthday'}}" class="birthday">
+    <view class="title">生日</view>
+    <view class="btn-date">
+      <image class="img" src="../../images/new/btn-date.png"></image>
+      <picker mode="date" value="{{birthday}}" name="birth" bindchange="bindAgeChange" class='str'>
+        <view class='age-on'>
+          <text>{{birthday || 'DD / MM / YYYY'}}</text>
+        </view>
+      </picker>
+    </view>
+    <image class="candle" src="../../images/new/doodle-birthday.png"></image>
+    <view class="btn">
+      <image class="img" src="../../images/new/btn-bg.png"></image>
+      <view bindtap="submitBirthday" class="str">Next</view>
+    </view>
+  </view>
+  <!-- 身高 -->
+  <view wx:if="{{currentQustion == 'height'}}" class="body-height">
+    <view class="title">身高</view>
+    <view class="btn-birthday">
+      <image class="img" src="../../images/new/btn-date.png"></image>
+      <view class="str">
+        I’m 
+      <input class="input height-input" name="userName" type="digit" placeholder-class="input-placeholder" 
+    bindinput="heightInput"/>
+       cm
+      </view>
+    </view>
+    <image class="ruler" src="../../images/new/doodle-height.png"></image>
+    <view class="btn">
+      <image class="img" src="../../images/new/btn-bg.png"></image>
+      <view bindtap="submitHeight" class="str">Next</view>
+    </view>
+  </view>
+  <!-- 体重 -->
+  <view wx:if="{{currentQustion == 'weight'}}" class="body-weight">
+    <view class="title">体重</view>
+    <view class="btn-birthday">
+      <image class="img" src="../../images/new/btn-date.png"></image>
+      <view class="str">
+      <input class="input" name="userName" type="digit" placeholder-class="input-placeholder" 
+    bindinput="weightInput"/>
+       kg
+      </view>
+    </view>
+    <image class="weighing" src="../../images/new/doodle-weight.png"></image>
+    <view class="btn">
+      <image class="img" src="../../images/new/btn-bg.png"></image>
+      <view bindtap="submitWeight" class="str">Next</view>
+    </view>
+  </view>
+  <!-- 怀孕 -->
+  <view wx:if="{{currentQustion == 'regnancy'}}" class="regnancy">
+    <view class="title">是否处于以下阶段？</view>
+    <view bindtap="selectFemaleStatus" data-Status="1" class="btn-regnancy">
+      <image wx:if="{{femaleStatus != 1}}" class="img" src="../../images/new/btn-date.png"></image>
+      <image wx:if="{{femaleStatus == 1}}" class="img" src="../../images/new/btn-date-act.png"></image>
+      <view class="str">
+       怀孕期
+      </view>
+    </view>
+    <view bindtap="selectFemaleStatus" data-Status="2"  class="btn-regnancy">
+      <image wx:if="{{femaleStatus != 2}}" class="img" src="../../images/new/btn-date.png"></image>
+      <image wx:if="{{femaleStatus == 2}}" class="img" src="../../images/new/btn-date-act.png"></image>
+      <view class="str">
+       哺乳期
+      </view>
+    </view>
+    <view bindtap="selectFemaleStatus" data-Status="0"  class="btn-regnancy">
+      <image wx:if="{{femaleStatus != 0}}" class="img" src="../../images/new/btn-date.png"></image>
+      <image wx:if="{{femaleStatus == 0}}" class="img" src="../../images/new/btn-date-act.png"></image>
+      <view class="str">
+       暂无
+      </view>
+    </view>
+    <image class="female" src="../../images/new/doodle-pregnant.png"></image>
+  </view>
+  <!-- 进度 -->
+  <view wx:if="{{isProgress}}" class="progress">
+    <view id="progress" animation="{{progressAnimation}}">
+      <block wx:for="{{categoryList}}" wx:for-index="key">
+        <view class="category-item">
+          <view class="line-icon"></view>
+          <view class="circle-icon {{currentCategoryNum < key ? '' : (currentCategoryNum > key ? 'circle-icon-done' : 'circle-icon-doing')}}"></view>
+          <view class="name" style="color:{{currentCategoryNum < key ? '#C9C9C9' : (currentCategoryNum > key ? '#89C33F' : '#4D4D4D')}}">{{item.name}}</view>
+          <view class="status status-todo" wx:if="{{currentCategoryNum < key}}">待完成</view>
+          <view class="status status-doing" wx:if="{{currentCategoryNum == key}}">进行中</view>
+          <view class="status status-done" wx:if="{{currentCategoryNum > key}}">已完成</view>
+        </view>
+      </block>
+      <view class="progress-img">
+        <image class="img" src="../../images/new/info-pic.png"></image>
+      </view>
+    </view>
+    
+  </view>
+<!-- 答题 -->
+  <view wx:if="{{questionList.length > 0 && currentQustion == 'other'}}" class="question">
+    <view class="title">
+      {{questionList[currentCategoryNum].list[currentQuestionIndex].question}}
+    </view>
+    <text class="title-desc">乳制品包括：牛奶、酸奶、奶酪、舒化奶和羊奶</text>
+    <block wx:for="{{questionList[currentCategoryNum].list[currentQuestionIndex].options}}">
+      <view bindtap="tapQuestionHandle" data-Question-id="{{item.id}}"  data-Kind="{{questionList[currentCategoryNum].list[currentQuestionIndex].kind}}" data-Category-num="{{currentCategoryNum}}" data-Current-question-index="{{currentQuestionIndex}}" class="question-option {{fmt.myIncludes(questionList[currentCategoryNum].list[currentQuestionIndex].answer,item.id) ? 'question-option-active' : 'question-option-no'}} {{item.option.length > 20 ? 'question-option-long' : ''}}">
+      {{item.option}}
+        <image wx:if="{{item.description && item.description.length > 0 || true}}" catchtap="showDesc" data-Description="{{item.description}}" data-Option="{{item.option}}" src="../../images/bt.png" class="question-btn"></image>
+      </view>
+    </block>
+    <view wx:if="{{questionList[currentCategoryNum].list[currentQuestionIndex].kind === 1 && questionList[currentCategoryNum].list[currentQuestionIndex].answer.length === 0 && !questionList[currentCategoryNum].list[currentQuestionIndex].canBeEmpty}}" class="submit submit-disabled">Next</view>
+    <view wx:if="{{questionList[currentCategoryNum].list[currentQuestionIndex].kind === 1 && questionList[currentCategoryNum].list[currentQuestionIndex].canBeEmpty}}" bindtap="nextQuestion" data-Category-num="{{currentCategoryNum}}" data-Current-question-index="{{currentQuestionIndex}}" class="submit">{{(questionList[currentCategoryNum].list[currentQuestionIndex].canBeEmpty && questionList[currentCategoryNum].list[currentQuestionIndex].answer.length === 0) ? '无' : 'Next' }}</view>
+  </view>
+  <!-- 结束 -->
+  <view wx:if="{{isShowResult}}" class="result">
+    <view class="box">
+      <image src="../../images/new/success-bg.png" class="img"></image>
+      <image src="../../images/new/brand-icon-black.png" class="logo"></image>
+      <text wx:if="{{!postPending}}" class="txt">您的问券已答完，是否提交？</text>
+      <text wx:if="{{postPending}}" class="txt">数据分析中...</text>
+      <view class="icon-box">
+        <view wx:for="{{[1,2,3,4,5,6,7,8]}}" class="icon-inline">
+          <image wx:if="{{item <= currentPendingNum}}" src="../../images/new/load.png" class="load-icon"></image>
+          <image wx:if="{{item > currentPendingNum}}" src="../../images/new/unload.png" class="load-icon"></image>
+        </view>
+      </view>
+    </view>
+    
+    <view wx:if="{{!postPending}}" class="btn">
+      <view bindtap="finishExercise" class="btn-top">提交</view>
+      <view bindtap="waitFinish" class="btn-bottom">再等等</view>
+    </view>
+  </view>
+  <!-- 弹框 -->
+  <view wx:if="{{isShowDescription}}" class="custom-dialog">
+    <view class="box" animation="{{tipAnimation}}">
+      <image src="../../images/new/popup.png" class="img"></image>
+      <view bindtap="closeDesc" class="close-block"></view>
+      <view class="txt">
+        <view class="option">{{option}}</view>
+        <view class="description">{{description}}</view>
+      </view>
+    </view>
+  </view>
+</view>
