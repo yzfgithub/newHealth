@@ -29,18 +29,33 @@ Page({
     isShowResult: false,
     postPending: false,
     currentPendingNum: 0,
-
-      //old
-
-
-    answerId: -1,
     showPrevQuestion: false,
+    navH: 0,
+    navTop: 0,
+    menuBtnH: 0,
+    returnHandle: false,
   },
 
   /**
    * 初始化数据，接口根据qId判断是否完成题目..
    */
   onLoad: function (options) {
+    let menuButtonObject = wx.getMenuButtonBoundingClientRect();
+    wx.getSystemInfo({
+      success: res => {
+        let statusBarHeight = res.statusBarHeight,
+          navTop = menuButtonObject.top,//胶囊按钮与顶部的距离
+          navHeight = statusBarHeight + menuButtonObject.height + (menuButtonObject.top - statusBarHeight)*2;//导航高度
+          this.setData({
+            navH: navHeight,
+            navTop: navTop,
+            menuBtnH: menuButtonObject.height,
+          })
+      },
+      fail(err) {
+        console.log(err);
+      }
+    })
     let evalutionId = options.evalutionId;
     let isNotNewEvalute = false;
     if (evalutionId) {
@@ -82,7 +97,7 @@ Page({
   },
   // 主动触发多选  TODO 提交题目
   nextQuestion() {
-    const current = this.data.questionList[e.currentTarget.dataset.categoryNum].list[this.data.currentQuestionIndex];
+    const current = this.data.questionList[this.data.currentCategoryNum - 1].list[this.data.currentQuestionIndex];
     const params = {
       question_id: current.id,
       answers: current.answer,
@@ -90,12 +105,12 @@ Page({
     evalutionApi.updateTopicAnswer(this.data.evalutionId,params,(res) => {
       if(res.data.success) {
         const nextIndex = this.data.currentQuestionIndex + 1;
-        if (e.currentTarget.dataset.categoryNum - 1 === this.data.questionLength - 1 && e.currentTarget.dataset.currentQuestionIndex === this.data.questionLength + 4){
+        if (this.data.currentCategoryNum - 1 === this.data.questionList.length - 1 && this.data.currentQuestionIndex === this.data.questionList[this.data.currentCategoryNum - 1].list.length - 1){
           console.log('题目答完了...');
           this.setData({
             isShowResult: true,
           })
-        } else if (!this.data.questionList[e.currentTarget.dataset.categoryNum].list[nextIndex]) {
+        } else if (!this.data.questionList[this.data.currentCategoryNum - 1].list[nextIndex]) {
           console.log('下一个类, 过渡动画');
           this.showProgress(this.data.currentCategoryNum);
           setTimeout(() => {
@@ -105,14 +120,14 @@ Page({
               currentIndex: this.data.currentIndex + 1,
               showPrevQuestion: false,
             })
-          }, 200)
+          }, 700)
           setTimeout(() => {
             this.hideProgress();
           }, 3000)
           this.goTop();
         } else {
           this.setData({
-            currentQuestionIndex: this.data.currentQuestionIndex + 1,
+            currentQuestionIndex: nextIndex,
             showPrevQuestion: true,
             currentIndex: this.data.currentIndex + 1,
           })
@@ -120,9 +135,6 @@ Page({
         }
       }
     })
-    // setTimeout(() => {
-
-    // },150)
   },
 
 
@@ -144,7 +156,7 @@ Page({
         },350)
         setTimeout(() => {
           wx.redirectTo({
-            url: '/pages/report/report?id=' + this.data.evalutionId,
+            url: '/pages/newReport/newReport?reportId=' + this.data.evalutionId,
           })
           this.waitFinish();
         },3000)
@@ -168,8 +180,8 @@ Page({
     this.setData({
       currentIndex: this.data.currentIndex - 1,
     })
-    if(this.data.questionList[this.data.currentCategoryNum].list[this.data.currentQuestionIndex - 1].kind === 0){
-      var str = 'questionList[' + this.data.currentCategoryNum + '].list[' + (this.data.currentQuestionIndex - 1) + '].answer';
+    if(this.data.questionList[this.data.currentCategoryNum - 1].list[this.data.currentQuestionIndex - 1].kind === 0){
+      var str = 'questionList[' + (this.data.currentCategoryNum - 1) + '].list[' + (this.data.currentQuestionIndex - 1) + '].answer';
       this.setData({
         [str]: [],
       })
@@ -363,6 +375,8 @@ Page({
             options: item.options,
             answer: [],
             kind: item.kind,
+            canBeEmpty: item.canBeEmpty,
+            isSelected: item.isSelected,
           })
         } else {
           questionObj[item.feature.id] = {
@@ -375,6 +389,8 @@ Page({
                 options: item.options,
                 answer: [],
                 kind: item.kind,
+                canBeEmpty: item.canBeEmpty,
+                isSelected: item.isSelected,
               }
             ]
           }
@@ -437,7 +453,7 @@ Page({
     }
     setTimeout(() => {
       var animation = wx.createAnimation({
-        duration: 1000,
+        duration: 500,
       })
       animation.translate(0, -1 * this.rpxTorpx(280 * (this.data.currentCategoryNum - 1) + 20)).step()
       this.setData({progressAnimation:animation.export()})
@@ -446,6 +462,24 @@ Page({
   hideProgress(){
     this.setData({
       isProgress: false,
+    })
+  },
+
+  returnHome() {
+    this.setData({
+      isShowResult: true,
+      returnHandle: true,
+    })
+  },
+  backHandle() { // TODO
+    wx.switchTab({
+      url: '../health/health',
+    })
+  },
+  continueHandle() {
+    this.setData({
+      isShowResult: false,
+      returnHandle: false,
     })
   },
 

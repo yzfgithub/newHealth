@@ -9,26 +9,123 @@
   </view>
   <view class="report-total">
     <view class="content">
-      <image src="../../images/new/frame-content.png"></image>
+      <!-- <image src="../../images/new/frame-content.png"></image> -->
       <view class="box">
         <view class="date">2020-10-10</view>
-        <block>
-          <view></view>
+        <block wx:for="{{reportDetail.reportAnalytics}}">
+          <view class="list">
+            <view class="name">
+              {{item.name}}
+              <view wx:if="{{item.text.length}}" class="sub-name">{{item.subName}}</view>
+            </view>
+            <view class="line">
+              <view style="left:{{item.score * 100 / item.total}}%" class="icon {{item.grade == 1 ? 'green-color' : item.grade == 2 ? 'yellow-color' : 'red-color'}}"></view>
+            </view>
+            <view class="grade {{item.grade == 1 ? 'green-color' : item.grade == 2 ? 'yellow-color' : 'red-color'}}">{{item.grade === 1 ? '轻' : item.grade === 2 ? '中' : '高'}}</view>
+          </view>
         </block>
       </view>
     </view>
-    <image class="line" src="../../images/new/divideline.png"></image>
+    <image class="line-block" src="../../images/new/divideline.png"></image>
     <view class="text">
-      <image src="../../images/new/frame-text.png"></image>
+      <!-- <image src="../../images/new/frame-text.png"></image> -->
       <view class="box">
         <view class="title">整体健康总结</view>
-        <view class="desc">您身体健康状态目前可能有严重肾上腺疲劳的迹象，可能处于在肾上腺失衡之第三期耗竭期、肠道中有中度小肠箘群过度生长与中度肠漏现象，轻度忧郁的情形，以及些许失眠的问题。 依据您身体健康结果，跟您的生活型态、饮食方式息息相关，您的核心营养素推荐主要以调节肾上腺疲劳 Adreset、改善肠道箘群，增强肠道健康 Ultra Flora Balance、维持雌激素正确代谢路径 DIM-EVAIL、改善睡眠品质 SeroSyn，为此，欢迎参考您的整体营养素推荐清单。</view>
+        <view class="desc">{{reportDetail.result}}</view>
       </view>
     </view>
+    <image class="line-footer" src="../../images/new/content-footer.png" alt=""></image>
   </view>
-  <view class="report-content"></view>
-  <view class="report-need"></view>
-  <view class="report-footer">
 
+  <block wx:for="{{reportDetail.reportAnalytics}}">
+    <view class="report-content">
+      <view class="content">
+        <!-- <image src="../../images/new/frame-title.png"></image> -->
+        <view class="box">
+          <view class="list">
+              <view class="name">
+                {{item.name}}
+              </view>
+              <view class="line">
+                <view style="left:{{item.score * 100 / item.total}}%" class="icon {{item.grade == 1 ? 'green-color' : item.grade == 2 ? 'yellow-color' : 'red-color'}}"></view>
+              </view>
+              <view class="grade {{item.grade == 1 ? 'green-color' : item.grade == 2 ? 'yellow-color' : 'red-color'}}">{{item.grade === 1 ? '轻' : item.grade === 2 ? '中' : '高'}}</view>
+            </view>
+          <view class="text">{{item.text}}</view>
+        </view>
+      </view>
+      <image wx:if="{{item.nutrients.length}}" class="line-block" src="../../images/new/divideline.png"></image>
+      <view class="text" wx:if="{{item.nutrients.length}}">
+        <!-- <image src="../../images/new/frame-content.png"></image> -->
+        <view class="box">
+          <view class="title">
+            <view>以下营养素可促进免疫力及各项机能</view>
+            <view>帮助身体适应各种压力</view>
+          </view>
+          <view class="nurtient-box">
+            <block wx:for="{{item.nutrients}}" wx:for-index="idx" wx:for-item="nutrient">
+              <view class="nurtient">
+                <view class="img"><image src="../../images/new/nurtient.png" alt=""></image></view>
+                <view class="detail">
+                  <view class="name">{{nutrient.name}}</view>
+                  <view class="desc">{{nutrient.text}}</view>
+                  <view class="str">{{nutrient.desc}}</view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+      <image wx:if="{{item.nutrients.length}}" class="line-footer" src="../../images/new/content-footer.png" alt=""></image>
+    </view>
+  </block>
+
+  <block wx:for="{{reportDetail.otherAnalytics}}">
+    <view class="report-content">
+      <view class="content">
+        <!-- <image src="../../images/new/frame-title.png"></image> -->
+        <view class="box">
+          <view class="list">
+              <view class="name">
+                {{item.name}}
+              </view>
+            </view>
+          <view class="attention">
+            <image class="eye" src="../../images/new/attention.png" alt=""></image>
+            <view>{{item.recommend}}</view>
+          </view>
+          <view class="text">{{item.text}}</view>
+        </view>
+      </view>
+      <image wx:if="{{item.nutrients.length}}" class="line-block" src="../../images/new/divideline.png"></image>
+      <view class="text" wx:if="{{item.nutrients.length}}">
+        <!-- <image src="../../images/new/frame-content.png"></image> -->
+        <view class="box">
+          <view class="title">
+            <view>以下营养素可促进免疫力及各项机能</view>
+            <view>帮助身体适应各种压力</view>
+          </view>
+          <view class="nurtient-box">
+            <block wx:for="{{item.nutrients}}" wx:for-index="idx" wx:for-item="nutrient">
+              <view class="nurtient">
+                <view class="img"><image src="../../images/new/nurtient.png" alt=""></image></view>
+                <view class="detail">
+                  <view class="name">{{nutrient.name}}</view>
+                  <view class="desc">{{nutrient.text}}</view>
+                  <view class="str">{{nutrient.desc}}</view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+      <image wx:if="{{item.nutrients.length}}" class="line-footer" src="../../images/new/content-footer.png" alt=""></image>
+    </view>
+  </block>
+
+  <view class="report-footer">
+      <view class="str1">营养素作用效果需1个月</view>
+      <view class="str2">营养师建议每月定期检测,</view>
+      <view class="str3">确认身体情况与所需营养素种类</view>
   </view>
 </view>

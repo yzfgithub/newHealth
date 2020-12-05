@@ -45,25 +45,67 @@
   margin-top: 60rpx;
   margin-bottom: 49rpx;
 }
-.report-total {
+.report-total, .report-content{
   display: flex;
   flex-direction: column;
+  box-shadow: 1rpx 1rpx 16rpx 10rpx #ddd;
 }
-.report-total .content, .report-total .text{
+.report-content {
+  margin-top: 66.6rpx;
+}
+.report-total .content, .report-total .text, .report-content .content, .report-content .text{
   display: flex;
   position: relative;
 }
-.report-total .content image{
+.report-total .content image, .report-content .content image{
   width: 615rpx;
 }
-.report-total .content .box, .report-total .text .box{
-  position: absolute;
+.report-content .content .attention{
+  display: flex;
+  margin-top: 50rpx;
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 21rpx;
+  line-height: 160.5%;
+  letter-spacing: 0.05em;
+  color: #CF0000;
+  align-items: center;
+}
+.report-content .content image.eye{
+  width: 82rpx;
+  height: 82rpx;
+  display: block;
+  margin-right: 40rpx;
+}
+.report-total .content .box, .report-content .content .box{
+  /* position: absolute;
   left: 0;
-  top: 0;
-  width: 100%;
+  top: 0; */
+  width: 615rpx;
   height: 100%;
   padding: 32rpx 37rpx;
   box-sizing: border-box;
+  background-color: #faf9f8;
+}
+.report-total .text .box, .report-content .text .box{
+  width: 615rpx;
+  padding: 32rpx 37rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.report-content .content .box {
+  padding-top: 0;
+}
+.report-content .content .box .text{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28rpx;
+  line-height: 160.5%;
+  letter-spacing: 0.05em;
+  color: #4D4D4D;
+  margin-top: 40rpx;
 }
 .report-total .content .box .date{
   font-family: HYQiHei;
@@ -73,11 +115,87 @@
   line-height: 160.5%;
   letter-spacing: 0.095em;
 }
-.report-total .line{
+.report-total .box .list, .report-content .box .list{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+}
+.report-total .box .list .name, .report-content .box .list .name{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32rpx;
+  line-height: 160.5%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.135em;
+  width: 250rpx;
+  position: relative;
+  color: #4D4D4D;
+}
+.report-total .box .list .sub-name{
+  position: absolute;
+  bottom: -26rpx;
+  left: 0;
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 21rpx;
+  line-height: 160.5%;
+  letter-spacing: 0.135em;
+  color: #BABABA;
+}
+.report-total .box .list .line, .report-content .box .list .line{
+  width: 226rpx;
+  height: 4rpx;
+  background: linear-gradient(90deg, #E1E1E1 0%, #000000 50%, #E1E1E1 100%);
+  background-blend-mode: screen;
+  position: relative;
+}
+.report-total .box .list .line .icon, .report-content .box .list .line .icon{
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 9rpx;
+  position: absolute;
+  top: -9rpx;
+  transform: rotate(90deg);
+}
+.report-total .box .list .line .icon.red-color, .report-content .box .list .line .icon.red-color{
+  background: radial-gradient(72.92% 72.65% at 37.04% 37.63%, #F4857E 0%, #C60000 100%);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 4px 3px 15px #CDCDCD;
+}
+.report-total .box .list .line .icon.yellow-color, .report-content .box .list .line .icon.yellow-color{
+  background: radial-gradient(72.92% 72.65% at 37.04% 37.63%, #F4E17E 0%, #FFC700 100%);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 4px 3px 15px #CDCDCD;
+}
+.report-total .box .list .line .icon.green-color, .report-content .box .list .line .icon.green-color{
+  background: radial-gradient(72.92% 72.65% at 37.04% 37.63%, #EDFFC6 0%, #86C600 100%);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 4px 3px 15px #CDCDCD;
+}
+.report-total .content .box .list .grade, .report-content .content .box .list .grade{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32rpx;
+  line-height: 160.5%;
+  text-align: right;
+  letter-spacing: 0.135em;
+}
+.report-total .content .box .list .grade.green-color, .report-content .content .box .list .grade.green-color{
+  color: #6CBD1C;
+}
+.report-total .content .box .list .grade.red-color, .report-content .content .box .list .grade.red-color{
+  color: #CE0000;
+}
+.report-total .content .box .list .grade.yellow-color, .report-content .content .box .list .grade.yellow-color{
+  color: #FFA800;
+}
+.report-total .line-block, .report-content .line-block, .report-total .line-footer, .report-content .line-footer{
   width: 615rpx;
   height: 8rpx;
 }
-.report-total .text image{
+.report-total .text image, .report-content .text image{
   width: 615rpx;
 }
 .report-total .text .title{
@@ -95,4 +213,100 @@
   font-size: 28rpx;
   line-height: 160.5%;
   letter-spacing: 0.05em;
+}
+.report-content .text .box{
+  padding: 32rpx 0;
+}
+.report-content .text .box .title{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 21rpx;
+  line-height: 200.5%;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #76A3C9;
+}
+.report-content .text .box .nurtient-box{
+  margin-left: 54rpx;
+  margin-top: 32rpx
+}
+.report-content .text .box .nurtient{
+  display: flex;
+  align-items: center;
+  margin-bottom: 36rpx;
+}
+.report-content .text .box .nurtient .img{
+  width: 125rpx;
+  margin-left: 30rpx;
+}
+.report-content .text .box .nurtient image{
+  width: 125rpx;
+  height: 75rpx;
+}
+.report-content .text .box .nurtient .detail{
+  margin-left: 22rpx;
+  flex: 1;
+}
+.report-content .text .box .nurtient .detail .name{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 32rpx;
+  line-height: 160.5%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.05em;
+  color: #4D4D4D;
+}
+.report-content .text .box .nurtient .detail .desc{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 21rpx;
+  line-height: 160.5%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.05em;
+  color: #76A3C9;
+  width: 320rpx;
+  margin: 10rpx 0;
+}
+.report-content .text .box .nurtient .detail .str{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16rpx;
+  line-height: 160.5%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 4rpx;
+  color: #FFFFFF;
+  border-radius: 20rpx 0 0 20rpx;
+  padding: 8rpx 10rpx;
+  background: #76A3C9;
+}
+
+.report-footer{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.045em;
+  color: #4D4D4D;
+  line-height: 115%;
+  margin-top: 89rpx;
+  display: flex;
+  flex-direction: column;
+}
+.report-footer .str1{
+  font-size: 40rpx;
+  margin-bottom: 10rpx;
+}
+.report-footer .str2, .report-footer .str3{
+  font-size: 25rpx;
+  font-weight: 300;
 }

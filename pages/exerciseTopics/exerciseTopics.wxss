@@ -1,3 +1,11 @@
+.head{
+  position: fixed;
+  left:0;
+  width: 100%;
+  top:0;
+  z-index: 1000;
+  background: #fff;
+}
 .question-wrap{
   width: 100vw;
   min-height: 100vh;
@@ -179,6 +187,7 @@
   width: 18.18rpx;
   background: radial-gradient(72.92% 72.65% at 37.05% 37.63%, #EFEFEF 0%, #B0B0B0 100%);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 4px 3px 15px #CDCDCD;
+  border-radius: 10rpx;
   position: absolute;
   left: 0;
   right: 0;
