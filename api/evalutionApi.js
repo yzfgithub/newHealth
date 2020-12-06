@@ -19,4 +19,7 @@ export default {
   finishTopicAnswer(id, callback) {
     return put(`/v1/answer_topics/${id}/finish`, {}, callback);
   },
+  getReportById(id, callback) {
+    return get(`/v1/report/${id}`, {}, callback);
+  }
 }

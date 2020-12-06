@@ -16,12 +16,12 @@
           <view class="list">
             <view class="name">
               {{item.name}}
-              <view wx:if="{{item.text.length}}" class="sub-name">{{item.subName}}</view>
+              <view wx:if="{{item.subName.length}}" class="sub-name">{{item.subName}}</view>
             </view>
             <view class="line">
-              <view style="left:{{item.score * 100 / item.total}}%" class="icon {{item.grade == 1 ? 'green-color' : item.grade == 2 ? 'yellow-color' : 'red-color'}}"></view>
+              <view style="left:{{item.score * 100 / item.total}}%" class="icon {{item.level == 1 ? 'green-color' : item.level == 2 ? 'yellow-color' : 'red-color'}}"></view>
             </view>
-            <view class="grade {{item.grade == 1 ? 'green-color' : item.grade == 2 ? 'yellow-color' : 'red-color'}}">{{item.grade === 1 ? '轻' : item.grade === 2 ? '中' : '高'}}</view>
+            <view class="grade {{item.level == 1 ? 'green-color' : item.level == 2 ? 'yellow-color' : 'red-color'}}">{{item.level === 1 ? '轻' : item.level === 2 ? '中' : '高'}}</view>
           </view>
         </block>
       </view>
@@ -31,7 +31,7 @@
       <!-- <image src="../../images/new/frame-text.png"></image> -->
       <view class="box">
         <view class="title">整体健康总结</view>
-        <view class="desc">{{reportDetail.result}}</view>
+        <view class="desc">{{reportDetail.surveyResult}}</view>
       </view>
     </view>
     <image class="line-footer" src="../../images/new/content-footer.png" alt=""></image>
@@ -47,11 +47,11 @@
                 {{item.name}}
               </view>
               <view class="line">
-                <view style="left:{{item.score * 100 / item.total}}%" class="icon {{item.grade == 1 ? 'green-color' : item.grade == 2 ? 'yellow-color' : 'red-color'}}"></view>
+                <view style="left:{{item.score * 100 / item.total}}%" class="icon {{item.level == 1 ? 'green-color' : item.level == 2 ? 'yellow-color' : 'red-color'}}"></view>
               </view>
-              <view class="grade {{item.grade == 1 ? 'green-color' : item.grade == 2 ? 'yellow-color' : 'red-color'}}">{{item.grade === 1 ? '轻' : item.grade === 2 ? '中' : '高'}}</view>
+              <view class="grade {{item.level == 1 ? 'green-color' : item.level == 2 ? 'yellow-color' : 'red-color'}}">{{item.level === 1 ? '轻' : item.level === 2 ? '中' : '高'}}</view>
             </view>
-          <view class="text">{{item.text}}</view>
+          <view class="text">{{item.content}}</view>
         </view>
       </view>
       <image wx:if="{{item.nutrients.length}}" class="line-block" src="../../images/new/divideline.png"></image>
@@ -68,8 +68,8 @@
                 <view class="img"><image src="../../images/new/nurtient.png" alt=""></image></view>
                 <view class="detail">
                   <view class="name">{{nutrient.name}}</view>
-                  <view class="desc">{{nutrient.text}}</view>
-                  <view class="str">{{nutrient.desc}}</view>
+                  <view class="desc">{{nutrient.desc}}</view>
+                  <view class="str">{{nutrient.other}}</view>
                 </view>
               </view>
             </block>
@@ -94,7 +94,7 @@
             <image class="eye" src="../../images/new/attention.png" alt=""></image>
             <view>{{item.recommend}}</view>
           </view>
-          <view class="text">{{item.text}}</view>
+          <view class="text">{{item.content}}</view>
         </view>
       </view>
       <image wx:if="{{item.nutrients.length}}" class="line-block" src="../../images/new/divideline.png"></image>
