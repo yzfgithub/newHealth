@@ -5,13 +5,16 @@
       <view class="left"><image src="../../images/new/head.png"></image></view>
       <view class="right">{{userName}}的个人营养报告</view>
     </view>
-    <view class="btn">查看我的专属营养素方案</view>
+    <view bindtap="viewProgram" class="btn">查看我的专属营养素方案</view>
   </view>
   <view class="report-total">
     <view class="content">
       <!-- <image src="../../images/new/frame-content.png"></image> -->
       <view class="box">
         <view class="date">2020-10-10</view>
+        <view class="gradient-line result-line">
+              <view class="trangle"></view>
+            </view>
         <block wx:for="{{reportDetail.reportAnalytics}}">
           <view class="list">
             <view class="name">
@@ -19,7 +22,7 @@
               <view wx:if="{{item.subName.length}}" class="sub-name">{{item.subName}}</view>
             </view>
             <view class="line">
-              <view style="left:{{item.score * 100 / item.total}}%" class="icon {{item.level == 1 ? 'green-color' : item.level == 2 ? 'yellow-color' : 'red-color'}}"></view>
+              <view style="left:{{(item.total-item.score) * 100 / item.total}}%" class="icon {{item.level == 1 ? 'green-color' : item.level == 2 ? 'yellow-color' : 'red-color'}}"></view>
             </view>
             <view class="grade {{item.level == 1 ? 'green-color' : item.level == 2 ? 'yellow-color' : 'red-color'}}">{{item.level === 1 ? '轻' : item.level === 2 ? '中' : '高'}}</view>
           </view>
@@ -47,9 +50,12 @@
                 {{item.name}}
               </view>
               <view class="line">
-                <view style="left:{{item.score * 100 / item.total}}%" class="icon {{item.level == 1 ? 'green-color' : item.level == 2 ? 'yellow-color' : 'red-color'}}"></view>
+                <view style="left:{{(item.total-item.score) * 100 / item.total}}%" class="icon {{item.level == 1 ? 'green-color' : item.level == 2 ? 'yellow-color' : 'red-color'}}"></view>
               </view>
               <view class="grade {{item.level == 1 ? 'green-color' : item.level == 2 ? 'yellow-color' : 'red-color'}}">{{item.level === 1 ? '轻' : item.level === 2 ? '中' : '高'}}</view>
+            </view>
+            <view class="gradient-line">
+              <view class="trangle"></view>
             </view>
           <view class="text">{{item.content}}</view>
         </view>
@@ -80,7 +86,11 @@
     </view>
   </block>
 
-  <block wx:for="{{reportDetail.otherAnalytics}}">
+  <view wx:if="{reportDetail.otherAnalytics.length}" class="str2">
+    您的身体还迫切需要：
+  </view>
+
+  <block wx:for="{{reportDetail.otherAnalytics}}" wx:if="{reportDetail.otherAnalytics.length}">
     <view class="report-content">
       <view class="content">
         <!-- <image src="../../images/new/frame-title.png"></image> -->
@@ -89,6 +99,9 @@
               <view class="name">
                 {{item.name}}
               </view>
+            </view>
+            <view class="gradient-line">
+              <view class="trangle"></view>
             </view>
           <view class="attention">
             <image class="eye" src="../../images/new/attention.png" alt=""></image>

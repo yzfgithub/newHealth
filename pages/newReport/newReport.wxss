@@ -62,7 +62,7 @@
 }
 .report-content .content .attention{
   display: flex;
-  margin-top: 50rpx;
+  margin-top: 40rpx;
   font-family: HYQiHei;
   font-style: normal;
   font-weight: 300;
@@ -309,4 +309,44 @@
 .report-footer .str2, .report-footer .str3{
   font-size: 25rpx;
   font-weight: 300;
+}
+
+.gradient-line{
+  width: 501rpx;
+  height: 2rpx;
+  background: linear-gradient(90deg, #E1E1E1 0%, #666666 50%, #E1E1E1 100%);
+  background-blend-mode: screen;
+  /* margin-top: 10rpx; */
+  position: relative;
+}
+.result-line{
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
+  background-blend-mode: screen;
+}
+.trangle{
+  position: absolute;
+  right: -85rpx;
+  top: -9px;
+  width: 0;
+  height: 0rpx;
+  border: 20rpx solid transparent;
+  border-right-color: #dedada;
+  transform: scaleY(0.5);
+}
+
+.str2{
+  font-family: HYQiHei;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 115%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.045em;
+  color: #4D4D4D;
+  margin-top: 89rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }

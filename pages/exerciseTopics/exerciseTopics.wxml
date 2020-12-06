@@ -145,7 +145,7 @@
     </view>
     <text class="title-desc">{{questionList[currentCategoryNum - 1].list[currentQuestionIndex].description}}</text>
     <block wx:for="{{questionList[currentCategoryNum - 1].list[currentQuestionIndex].options}}">
-      <view bindtap="tapQuestionHandle" data-Question-id="{{item.id}}"  data-Kind="{{questionList[currentCategoryNum - 1].list[currentQuestionIndex].kind}}" data-Category-num="{{currentCategoryNum - 1}}" data-Current-question-index="{{currentQuestionIndex}}" class="question-option {{fmt.myIncludes(questionList[currentCategoryNum - 1].list[currentQuestionIndex].answer,item.id) ? 'question-option-active' : 'question-option-no'}} {{item.option.length > 20 ? 'question-option-long' : ''}}">
+      <view bindtap="tapQuestionHandle" data-Question-id="{{item.id}}"  data-Kind="{{questionList[currentCategoryNum - 1].list[currentQuestionIndex].kind}}" data-Category-num="{{currentCategoryNum - 1}}" data-Current-question-index="{{currentQuestionIndex}}" class="question-option {{fmt.myIncludes(questionList[currentCategoryNum - 1].list[currentQuestionIndex].answer,item.id) ? 'question-option-active' : 'question-option-no'}}">
       {{item.option}}
         <image wx:if="{{item.description && item.description.length > 0}}" catchtap="showDesc" data-Description="{{item.description}}" data-Option="{{item.option}}" src="../../images/bt.png" class="question-btn"></image>
       </view>
